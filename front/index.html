@@ -12,12 +12,18 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
-    
-    inserire mail: <input type="text" id="mail" placeholder="email" /><br>
-    inserire password: <input type="password" id="pwd" placeholder="password" /><br>
-    <button id="in">Sign In</button>
-    <button id="up">Sign Up</button>
+    <div class="container-sm input-group">
+      <span class="input-group-text" style="background-color:tomato">User credentials</span>
+      <input type="text" id="mail" placeholder="email" />
+      <input type="password" id="pwd" placeholder="password" />
+      <button id="in" class="btn btn-outline-success">Sign In</button>
+      <button id="up" class="btn btn-outline-success">Sign Up</button>
+    </div>
+    <div class="d-grid gap-2 container-sm" style="background-color:tan">
+      
+    </div>
     <h1 id="conf"></h1>
+
     <script>
       $("#in").click(function () {
         var mail = $("#mail").val();
