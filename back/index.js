@@ -23,8 +23,6 @@ apiServer.get("/api/login", (req, res) => {
   console.log("ricevuti:", req.query.mail, req.query.password);
   connection.query("SELECT * FROM User WHERE mail='"+req.query.mail+"' AND password='"+req.query.password+"';",
     function(err, results, fields) {
-      console.log(results);
-      console.log(err);
       if (err) {
         console.log(err);
         res.status(400).json({message: "sign-up failed"});
