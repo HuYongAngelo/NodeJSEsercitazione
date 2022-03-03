@@ -23,15 +23,18 @@ apiServer.get("/api/login", (req, res) => {
   console.log("ricevuti:", req.query.mail, req.query.password);
   connection.query("SELECT * FROM User WHERE mail='"+req.query.mail+"' AND password='"+req.query.password+"';",
     function(err, results, fields) {
-      if (err) {
-        console.log(err);
-        res.status(400).json({message: "sign-up failed"});
+      if (Object.keys(results).length) {
+        if (err) {
+          console.log(err);
+          res.status(400).json({message: "sign-up failed"});
+        } else {
+          res.status(200).json({message: "sign-up success"});
+        }
       } else {
-        res.status(200).json({message: "sign-up success"});
+        res.status(400).json({message: "sign-up failed"});
       }
     }
   );
-  
 
   // fs.readFile("users.json", (err, data) => {
   //   if (err) {
